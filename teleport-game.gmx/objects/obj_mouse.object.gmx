@@ -29,7 +29,7 @@
 cooldown = 0;
 enable = true;
 
-//window_set_cursor(cr_none);
+window_set_cursor(cr_none);
 </string>
           </argument>
         </arguments>
@@ -101,13 +101,15 @@ if mouse_check_button_released(mb_right)
           <argument>
             <kind>1</kind>
             <string>///Cursor, var text
+/*
 draw_set_color(c_gray);
 draw_set_circle_precision(4);
 draw_circle(mouse_x,mouse_y,8,false);
-/*
+
 draw_set_color(c_black);
 draw_text(mouse_x + 30,mouse_y,string(cooldown))
 draw_text(mouse_x + 30,mouse_y+12,string(enable))
+*/
 </string>
           </argument>
         </arguments>
