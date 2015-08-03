@@ -16,13 +16,16 @@
     <script>scripts\scr_getInputs.gml</script>
     <script>scripts\scr_collideMove.gml</script>
     <script>scripts\scr_p_state_normal.gml</script>
-    <script>scripts\scr_p_state_dashing.gml</script>
+    <script>scripts\scr_p_state_dash.gml</script>
+    <script>scripts\vectorx.gml</script>
+    <script>scripts\vectory.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_mouse</object>
     <object>objects\obj_init</object>
     <object>objects\obj_wall</object>
+    <object>objects\obj_test</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>

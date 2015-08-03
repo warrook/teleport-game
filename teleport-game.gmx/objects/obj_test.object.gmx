@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1000</depth>
+  <depth>-2000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,12 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Init
-cooldown = 0;
-enable = true;
-
-window_set_cursor(cr_none);
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -52,37 +47,7 @@ window_set_cursor(cr_none);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Position, Right click
-
-//Pos
-x = mouse_x
-y = mouse_y
-
-//Right click
-if cooldown &gt; 0 cooldown -= 1;
-
-with (obj_player)
-{
-    if (mouse_check_button(mb_right) &amp;&amp; other.cooldown == 0 &amp;&amp; other.enable == true)
-    {
-        x = other.x;
-        y = other.y;
-        tpTriggered = true;
-        other.cooldown = 10;
-        other.enable = mouse_check_button_released(mb_right);
-    }
-}
-
-if mouse_check_button_released(mb_right)
-{
-    enable = mouse_check_button_released(mb_right);
-}
-
-with (obj_player)
-{
-    other.dashCD = dashCD;
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -104,25 +69,35 @@ with (obj_player)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Cursor, var text
-/*
-draw_set_color(c_gray);
-draw_set_circle_precision(4);
-draw_circle(mouse_x,mouse_y,8,false);
+            <string>var x1,y1,xa,ya,xb,yb,phi,h,deltax,deltay;
+x1 = view_wview[0]/2;
+y1 = view_hview[0]/4;
+xa = x1;
+ya = y1 * 3;
 
-draw_set_color(c_black);
-draw_text(mouse_x + 30,mouse_y,string(cooldown))
-draw_text(mouse_x + 30,mouse_y+12,string(enable))
-*/
+draw_set_color(c_green);
+draw_line_width(x1,y1,mouse_x,mouse_y,3);
 
-var progress;
-progress = 1 - (dashCD/95)
+phi = point_direction(x1,y1,mouse_x,mouse_y); //no matter
+h = point_distance(x1,y1,mouse_x,mouse_y);
 
-draw_set_colour(c_gray);
-draw_rectangle(x - 7, y + 8, x + 6, y + 10, false);
-draw_set_colour(c_maroon);
-draw_rectangle(x - 7, y + 8, x - 6 + (progress * 12), y + 10, false);
+deltax = vectorx(100,h)
+deltay = vectory(100,h) //Does it need to negate?
+xb = xa + deltax;
+yb = ya + deltay;
 
+draw_set_color(c_red);
+draw_line_width(xa,ya,xb,yb,2);
+
+draw_set_color(c_blue);
+draw_set_halign(fa_right);
+draw_text(
+    room_width - 32,
+    32,
+    "phi: " + string(phi)
+    + "#h: " + string(h)
+);
+draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>

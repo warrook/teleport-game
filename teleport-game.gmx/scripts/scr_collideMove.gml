@@ -7,14 +7,13 @@ if (!place_free(round(x+hsp),round(y)))
 }
 x += hsp;
 
-hsp_target = movespeed * (key_right - key_left);
 difHsp = (hsp_target - hsp);
-
 if (abs(difHsp) < 0.5)
     hsp = hsp_target;
 else
-    hsp += difHsp * 0.25
+    hsp += difHsp * rate
 
+    
 //Vertical
 if (!place_free(round(x),round(y+vsp)))
 {
@@ -25,3 +24,11 @@ if (!place_free(round(x),round(y+vsp)))
 y += vsp;
 
 if (vsp > 15) vsp = 15
+if (vsp < -15) vsp = -15
+
+//End of step
+if dashCD > 0 dashCD -= 1;
+if leftCD > 0 leftCD -= 1;
+if rightCD > 0 rightCD -= 1;
+//Flags
+inAir = place_free(x,y+1);

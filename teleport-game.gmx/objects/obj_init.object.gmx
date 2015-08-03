@@ -25,11 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Initialize States
-enum p_state //player state
+            <string>///Initialize States
+enum state //player state
 {
     normal,
-    dashing
+    dash,
+    teleport
 }
 
 //Set cursor
