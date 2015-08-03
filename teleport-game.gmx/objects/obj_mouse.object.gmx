@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -29,7 +29,7 @@
 cooldown = 0;
 enable = true;
 
-window_set_cursor(cr_none);
+//window_set_cursor(cr_none);
 </string>
           </argument>
         </arguments>
@@ -101,7 +101,7 @@ if mouse_check_button_released(mb_right)
           <argument>
             <kind>1</kind>
             <string>///Cursor, var text
-draw_set_color(c_maroon);
+draw_set_color(c_gray);
 draw_set_circle_precision(4);
 draw_circle(mouse_x,mouse_y,8,false);
 /*

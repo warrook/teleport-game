@@ -72,15 +72,19 @@ if keyboard_check(ord('A'))
 if keyboard_check(ord('D'))
     hspeed += spd;
 
-if (speed &gt; 6 &amp;&amp; sprinting == false) speed = 6;
-else if (speed &gt; 12 &amp;&amp; sprinting == true) speed = 12;
-
-sprinting = false;
+if (speed &gt; 6 &amp;&amp; sprinting == false)
+    speed = 6;
+else if (speed &gt; 12 &amp;&amp; sprinting == true)
+{
+    speed = 12;
+    sprinting = false;
+}
 
 x = min(x,room_width-size); //Right side of the room
 x = max(x,size-1); //Left side
 y = min(y,room_height-size); //Bottom
 y = max(y,size-1); //Top
+
 </string>
           </argument>
         </arguments>
@@ -106,6 +110,12 @@ y = max(y,size-1); //Top
             <string>draw_set_colour(c_green);
 draw_roundrect(x-size,y-size,x+size,y+size,false);
 draw_set_color(c_black);
+draw_set_circle_precision(4);
+draw_circle(x,y,16,false);
+
+draw_set_color(c_black);
+draw_text(32,32,string(vspeed));
+draw_text(32,48,string(hspeed));
 </string>
           </argument>
         </arguments>

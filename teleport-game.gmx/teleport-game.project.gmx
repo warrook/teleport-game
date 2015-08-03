@@ -11,6 +11,7 @@
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_mouse</object>
+    <object>objects\obj_init</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>

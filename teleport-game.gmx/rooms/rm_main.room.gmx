@@ -53,6 +53,7 @@
   <instances>
     <instance objName="obj_player" x="320" y="224" name="inst_424E3644" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mouse" x="448" y="224" name="inst_C223AB7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_init" x="0" y="0" name="inst_7D6D16AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
