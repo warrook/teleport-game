@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize States
+            <string>///Initialize States, create objects
 enum state //player state
 {
     normal,
@@ -34,7 +34,10 @@ enum state //player state
 }
 
 //Set cursor
-cursor_sprite = spr_cursor;
+//cursor_sprite = spr_cursor;
+
+instance_create(0,0,obj_mouse);
+instance_create(0,0,obj_test);
 </string>
           </argument>
         </arguments>

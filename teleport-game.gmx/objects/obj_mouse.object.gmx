@@ -114,6 +114,10 @@ draw_set_color(c_black);
 draw_text(mouse_x + 30,mouse_y,string(cooldown))
 draw_text(mouse_x + 30,mouse_y+12,string(enable))
 */
+sprite_index = spr_cursor;
+image_index = 1;
+draw_self();
+//image_speed = 0;
 
 var progress;
 progress = 1 - (dashCD/95)

@@ -31,22 +31,40 @@ hsp = 0; //Horizontal speed
 hsp_target = 0; //Target h. speed
 difHsp = 0; //hsp_target - hsp
 vsp = 0; //Vertical speed
-rate = 0; //Rate of speed decay
 hdir = 0; //Horizontal direction
 vdir = 0; //Vertical direction
+frc = 0; //Friction
+deltahsp = 0;
+deltavsp = 0;
+vspbuffer = 0;
 
-jumpspeed = 5;
+highesty = room_height;
+prev_highesty = room_height;
+
+//Multi State
 movespeed = 3;
+
+//Normal State
+jumpspeed = 5.5;
+jumped = false; //True if player jumps off ground
+jumps = 0; //Counter for airborne velocity inversions (double jumps) done
+jumpsmax = 1; //Cap for double jumps
+
+//Dash State
 dashspeed = 3;
 dashing = 0; //Counter for dashing
 dashCD = 0; //Timer until dashing can be performed again (i could probably use an alarm)
-
 leftCD = 0;
 rightCD = 0;
-jumpCD = 0;
+
+//Teleport State
+enabletp = true; //If true, player can attempt a teleport
+teleported = false; //True is player successfully teleports
+teleportCD = 0; //Timer until teleport can be done again
 
 //Flags
 inAir = 0;
+toggle = 0; //debug info; see scr_getInputs()
 
 state = state.normal;
 </string>
@@ -116,25 +134,39 @@ draw_text(32,48,string(hspeed));*/
 
 draw_self();
 
-draw_set_color(c_black);
-draw_text
-(
-    32,
-    32,
-    "state: " + string(state)
-    + "#place free: " + string(place_free(x,y+1))
-    + "#hsp: " + string(hsp)
-    //+ "#hsp calc: " + string(movespeed) + " * " + string(key_right - key_left)
-    + "#hsp_target: " + string(hsp_target)
-    + "#difHsp: " + string(difHsp)
-    + "#hsp calc: " + string(difHsp/8) + " * " + string(sign(hsp_target))
-    + "#vsp: " + string(vsp)
-    + "#dashing: " + string(dashing)
-    + "#dashCD: " + string(dashCD)
-    + "#dash alarm lft: " + string(leftCD)
-    + "#dash alarm rgt: " + string(rightCD)
-    + "#dash alarm up: " + string(jumpCD)
-);
+if (toggle)
+{
+    draw_set_color(c_black);
+    draw_text
+    (
+        64,
+        32,
+        "state: " + string(state)
+        + "#place free: " + string(place_free(x,y+1))
+        + "#hsp: " + string(hsp)
+        //+ "#hsp calc: " + string(movespeed) + " * " + string(key_right - key_left)
+        //+ "#hsp_target: " + string(hsp_target)
+        //+ "#difHsp: " + string(difHsp)
+        + "#vsp: " + string(vsp)
+        /*+ "#dashing: " + string(dashing)
+        + "#dashCD: " + string(dashCD)
+        + "#dash alarm lft: " + string(leftCD)
+        + "#dash alarm rgt: " + string(rightCD)
+        + "#dash alarm up: " + string(jumpCD)
+        + "#rmb down: " + string(mouse_right)
+        + "#rmb pressed: " + string(mouse_right_pressed)*/
+        + "#deltahsp: " + string(deltahsp) 
+        + "#deltavsp: " + string(deltavsp) 
+        + "#jumps: " + string(jumps)
+        + "#inAir:" + string(inAir)
+        + "#x: " + string(x)
+        + "#y: " + string(y)
+        + "#high y1: " + string(768-prev_highesty)
+        + "#high y2: " + string(768-highesty)
+        + "#vspbuffer: " + string(vspbuffer)
+        + "#jumped: " + string(jumped)
+    );
+}
 </string>
           </argument>
         </arguments>

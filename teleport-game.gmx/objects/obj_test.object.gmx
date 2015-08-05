@@ -80,9 +80,10 @@ draw_line_width(x1,y1,mouse_x,mouse_y,3);
 
 phi = point_direction(x1,y1,mouse_x,mouse_y); //no matter
 h = point_distance(x1,y1,mouse_x,mouse_y);
+theta = point_direction(xa,ya,mouse_x,mouse_y);
 
-deltax = vectorx(100,h)
-deltay = vectory(100,h) //Does it need to negate?
+deltax = vectorx(theta,h);
+deltay = vectory(theta,h);
 xb = xa + deltax;
 yb = ya + deltay;
 
@@ -96,6 +97,7 @@ draw_text(
     32,
     "phi: " + string(phi)
     + "#h: " + string(h)
+    + "#theta: " + string(theta)
 );
 draw_set_halign(fa_left);
 </string>

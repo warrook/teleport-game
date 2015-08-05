@@ -17,6 +17,7 @@
     <script>scripts\scr_collideMove.gml</script>
     <script>scripts\scr_p_state_normal.gml</script>
     <script>scripts\scr_p_state_dash.gml</script>
+    <script>scripts\scr_p_state_teleport.gml</script>
     <script>scripts\vectorx.gml</script>
     <script>scripts\vectory.gml</script>
   </scripts>
