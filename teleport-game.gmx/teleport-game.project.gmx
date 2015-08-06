@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_noplayer</sprite>
     <sprite>sprites\spr_cursor</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -17,9 +18,9 @@
     <script>scripts\scr_collideMove.gml</script>
     <script>scripts\scr_p_state_normal.gml</script>
     <script>scripts\scr_p_state_dash.gml</script>
-    <script>scripts\scr_p_state_teleport.gml</script>
-    <script>scripts\vectorx.gml</script>
-    <script>scripts\vectory.gml</script>
+    <script>scripts\scr_teleport.gml</script>
+    <script>scripts\scr_checkSolid.gml</script>
+    <script>scripts\testscr_notele.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>

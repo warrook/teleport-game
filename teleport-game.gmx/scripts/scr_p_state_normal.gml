@@ -22,21 +22,16 @@ if (key_jump_pressed)
     }
     if (inAir && jumps < jumpsmax)
     {
-        var phi = point_direction(0,0,hsp,vsp);
-        var h = point_distance(0,0,hsp,vsp);
-        //deltahsp = lengthdir_x(h,phi);
-        deltavsp = lengthdir_y(h,phi);
-        //hsp += deltahsp;
-        vsp = -deltavsp + grav;
-        vspbuffer = vsp;
+        vsp = -vsp + grav;
         jumps++;
     }
 }
 if (!key_jump && jumped)
 {
     vsp = max(vsp,-jumpspeed/2);
-    jumped = 0;
+    jumped = false;
 }
+
 //Move to Dash state
 if (dashCD == 0)
 {
@@ -63,8 +58,11 @@ if (dashCD == 0)
             rightCD = 15;
     }
 }
-//Move to Teleport state
-//if (mouse_right_pressed)
-    //state = state.teleport;
 
+if (mouse_right && enabletp)
+{
+    teleporting = true;
+    scr_teleport(mouse_x, mouse_y);
+}
+    
 scr_collideMove();

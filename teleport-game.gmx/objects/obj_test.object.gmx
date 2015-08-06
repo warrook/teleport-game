@@ -82,8 +82,8 @@ phi = point_direction(x1,y1,mouse_x,mouse_y); //no matter
 h = point_distance(x1,y1,mouse_x,mouse_y);
 theta = point_direction(xa,ya,mouse_x,mouse_y);
 
-deltax = vectorx(theta,h);
-deltay = vectory(theta,h);
+deltax = lengthdir_x(h,theta);
+deltay = lengthdir_y(h,theta);
 xb = xa + deltax;
 yb = ya + deltay;
 

@@ -30,13 +30,12 @@ enum state //player state
 {
     normal,
     dash,
-    teleport
 }
 
 //Set cursor
 //cursor_sprite = spr_cursor;
 
-instance_create(0,0,obj_mouse);
+//instance_create(0,0,obj_mouse);
 instance_create(0,0,obj_test);
 </string>
           </argument>

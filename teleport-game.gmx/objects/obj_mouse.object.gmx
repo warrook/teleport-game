@@ -29,7 +29,7 @@
 cooldown = 0;
 enable = true;
 
-window_set_cursor(cr_none);
+//window_set_cursor(cr_none);
 </string>
           </argument>
         </arguments>
@@ -58,7 +58,7 @@ window_set_cursor(cr_none);
 x = mouse_x
 y = mouse_y
 
-//Right click
+/*Right click
 if cooldown &gt; 0 cooldown -= 1;
 
 with (obj_player)
@@ -77,7 +77,7 @@ if mouse_check_button_released(mb_right)
 {
     enable = mouse_check_button_released(mb_right);
 }
-
+*/
 with (obj_player)
 {
     other.dashCD = dashCD;
