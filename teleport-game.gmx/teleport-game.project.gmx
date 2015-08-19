@@ -20,6 +20,7 @@
     <script>scripts\scr_p_state_dash.gml</script>
     <script>scripts\scr_teleport.gml</script>
     <script>scripts\scr_checkSolid.gml</script>
+    <script>scripts\scr_checkSolidLine.gml</script>
     <script>scripts\testscr_notele.gml</script>
   </scripts>
   <objects name="objects">
@@ -32,6 +33,10 @@
   <rooms name="rooms">
     <room>rooms\rm_main</room>
   </rooms>
+  <constants number="2">
+    <constant name="STATE_NORMAL">state.normal</constant>
+    <constant name="STATE_DASH">state.dash</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
