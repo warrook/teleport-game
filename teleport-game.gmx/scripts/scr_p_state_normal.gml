@@ -7,7 +7,7 @@ dashing = 0;
 hdir = key_right - key_left;
 hsp_target = movespeed * hdir;
 
-if inAir
+if inAir && !teleporting
     vsp += grav;
 
 //Jumping
@@ -61,7 +61,6 @@ if (dashCD == 0)
 
 if (mouse_right && enabletp)
 {
-    teleporting = true;
     scr_teleport(mouse_x, mouse_y);
 }
     

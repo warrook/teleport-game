@@ -18,10 +18,13 @@
     <script>scripts\scr_collideMove.gml</script>
     <script>scripts\scr_p_state_normal.gml</script>
     <script>scripts\scr_p_state_dash.gml</script>
-    <script>scripts\scr_teleport.gml</script>
     <script>scripts\scr_checkSolid.gml</script>
     <script>scripts\scr_checkSolidLine.gml</script>
     <script>scripts\testscr_notele.gml</script>
+    <scripts name="teleport">
+      <script>scripts\scr_findtarget.gml</script>
+      <script>scripts\scr_teleport.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>

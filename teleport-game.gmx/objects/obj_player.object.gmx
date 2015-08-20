@@ -64,6 +64,10 @@ teleported = false; //True is player successfully teleports
 teleportCD = 0; //Timer until teleport can be done again
 targetx = 0;
 targety = 0;
+closest_d = 0;
+closest_x = 0;
+closest_y = 0;
+
 
 notele = 0;
 
@@ -144,12 +148,16 @@ if (toggle)
     (
         64,
         32,
-        "state: " + string(state)
+        "fps: " + string(fps)
+        + "#state: " + string(state)
         + "#mouse x: " + string(mouse_x)
         + "#mouse y: " + string(mouse_y)
         + "#targetx: " + string(targetx)
         + "#targety: " + string(targety)
         //+ "#over block? " + string(1-place_free(mouse_x,mouse_y)) //If the player sprite was placed there, yo!
+        + "#closest_d: " + string(closest_d)
+        + "#closest_x: " + string(closest_x)
+        + "#closest_y: " + string(closest_y)
         + "#place free: " + string(place_free(x,y+1))
         + "#hsp: " + string(hsp)
         //+ "#hsp calc: " + string(movespeed) + " * " + string(key_right - key_left)
@@ -177,6 +185,7 @@ if (toggle)
         + "#noteleport: " + string(notele)
     );
     draw_sprite(testscr_notele(),0,targetx,targety);
+    draw_point_colour(targetx,targety,c_aqua);
 }
 </string>
           </argument>
